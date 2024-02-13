@@ -1,0 +1,47 @@
+﻿@page
+@model PollyDemo.Pages.PollyDemoModel
+
+@{
+    ViewData["Title"] = "Add Employee";
+}
+
+<h2>Add Employee</h2>
+
+<form method="post">
+    <div class="form-group">
+        <input type="text" class="form-control" id="Name" name="Name" value="@(Model.Employee?.Name ?? "")" />
+
+
+
+    </div>
+    <div class="form-group">
+        <label for="Designation">Designation</label>
+        
+        <input type="text" class="form-control" id="Designation" name="Designation" value="@(Model.Employee?.Designation ?? "")" />
+
+
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<h2>Employees List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Designation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model.Employees)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+                <td>@employee.Designation</td>
+            </tr>
+        }
+    </tbody>
+</table>
